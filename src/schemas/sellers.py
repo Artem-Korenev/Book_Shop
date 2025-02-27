@@ -1,7 +1,6 @@
 from pydantic import BaseModel, Field, field_validator
 from .books import ReturnedBookForSeller
 
-# from pydantic_core import PydanticCustomError
 
 __all__ = [
     "IncomingSeller",

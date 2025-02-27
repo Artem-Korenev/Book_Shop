@@ -4,8 +4,6 @@ from sqlalchemy import select
 from src.models.books import Book
 from src.models.sellers import Seller
 
-# from src.models.sellers import Seller
-
 from src.schemas import IncomingBook, ReturnedAllbooks, ReturnedBook
 from icecream import ic
 from sqlalchemy.ext.asyncio import AsyncSession

@@ -15,7 +15,6 @@ from src.schemas import (
     ReturnedSellerAfterCreate,
 )
 
-from icecream import ic
 from sqlalchemy.ext.asyncio import AsyncSession
 from src.configurations import get_async_session
 
@@ -60,7 +59,7 @@ async def get_all_sellers(session: DBSession):
     return {"sellers": sellers}
 
 
-# Ручка для получения книги по ее ИД
+# Ручка для получения продавца по его ИД
 @sellers_router.get("/{id}", response_model=ReturnedSellerWithBooks)
 async def get_seller(id: int, session: DBSession):
     if result := await session.get(Seller, id):
@@ -73,7 +72,6 @@ async def get_seller(id: int, session: DBSession):
                 id=book.id,
                 title=book.title,
                 author=book.author,
-                # seller_id=book.seller_id,
                 year=book.year,
                 pages=book.pages,
             )

@@ -36,7 +36,7 @@ async def test_create_seller(async_client):
 # Тест на ручку получения списка продавцов
 @pytest.mark.asyncio
 async def test_get_sellers(db_session, async_client):
-    # Создаем книги вручную, а не через ручку, чтобы нам не попасться на ошибку которая
+    # Создаем продавцов вручную, а не через ручку, чтобы нам не попасться на ошибку которая
     # может случиться в POST ручке
     seller_1 = Seller(
         first_name="Artyom",
@@ -85,7 +85,7 @@ async def test_get_sellers(db_session, async_client):
 # Тест на ручку обновления продавца
 @pytest.mark.asyncio
 async def test_update_seller(db_session, async_client):
-    # Создаем книги вручную, а не через ручку, чтобы нам не попасться на ошибку которая
+    # Создаем продавца вручную, а не через ручку, чтобы нам не попасться на ошибку которая
     # может случиться в POST ручке
     seller = Seller(
         first_name="Artyom",
@@ -145,7 +145,7 @@ async def test_delete_seller(db_session, async_client):
 # Тест на ручку получения одного продавца
 @pytest.mark.asyncio
 async def test_get_single_seller(db_session, async_client):
-    # Создаем книги и продавцов вручную, а не через ручку, чтобы нам не попасться на ошибку которая
+    # Создаем книги и продавцов вручную, а не через ручку
     book_1 = Book(
         title="Clean Architecture",
         author="Robert Martin",

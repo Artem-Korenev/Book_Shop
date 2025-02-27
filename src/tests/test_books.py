@@ -3,7 +3,6 @@ from sqlalchemy import select
 from src.models.books import Book
 from src.models.sellers import Seller
 from fastapi import status
-from icecream import ic
 import pytest_asyncio
 
 
@@ -13,9 +12,9 @@ async def seller_fixture(async_client):
     # Добавляем продавца перед выполнением тестов
     data = {
         "first_name": "Artyom",
-        "last_name": "Artyom",
-        "e_mail": "Artyom",
-        "password": "Artyom",
+        "last_name": "Korenev",
+        "e_mail": "Artyom@mail.ru",
+        "password": "Art",
     }
     response = await async_client.post("/api/v1/sellers/", json=data)
     assert response.status_code == 201
@@ -180,7 +179,7 @@ async def test_update_book(db_session, async_client, seller_fixture):
             "title": "Mziri",
             "author": "Lermontov",
             "pages": 100,
-            "year": 2007,
+            "year": 2021,
             "id": book.id,
             "seller_id": seller_fixture,
         },
@@ -194,7 +193,7 @@ async def test_update_book(db_session, async_client, seller_fixture):
     assert res.title == "Mziri"
     assert res.author == "Lermontov"
     assert res.pages == 100
-    assert res.year == 2007
+    assert res.year == 2021
     assert res.id == book.id
     assert res.seller_id == book.seller_id
 
